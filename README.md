@@ -55,3 +55,9 @@ JS模拟Click事件即可触发,之后读取data-cookie即可.
 data-cookie={"BDUSS":"ABC","BAIDUID":"ASCED"}
 
 返回一个对象.
+
+##备注
+
+现阶段为了安全起见,只在一下网站加载本插件.
+
+* https://qiandao.today/
