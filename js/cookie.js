@@ -9,7 +9,7 @@ function onload(func) {
 
 onload(function() {
     console.log("Cookies Helper Start");
-    var export_btn = document.querySelector("[data-id='cookie_btn']");
+    var export_btn = document.querySelector("[data-toggle='get-cookie']");
     if(export_btn){
         var site = export_btn.getAttribute("data-site");
         var name = export_btn.getAttribute("data-name");
