@@ -1,0 +1,22 @@
+{
+   "background": {
+      "scripts": ["background.js"],
+      "persistent": false
+   },
+   "content_scripts": [ {
+      "js": ["js/button.js", "js/cookie.js" ],
+      "matches": [ "http://*/*", "https://*/*" ]
+   } ],
+   "default_locale": "en",
+   "description": "__MSG_description__",
+   "icons": {
+      "32": "images/logo32.png",
+      "16": "images/logo16.png",
+      "48": "images/logo48.png",
+      "128": "images/logo128.png"
+   },
+   "manifest_version": 2,
+   "permissions": [ "cookies", "tabs", "http://*/*", "https://*/*"],
+   "name": "__MSG_appName__",
+   "version": "0.0.1"
+}
