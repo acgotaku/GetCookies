@@ -11,6 +11,11 @@ Chrome下获取Cookies插件,突破HTTP ONLY限制
 
 		<button class="icon-btn-device" data-cookie=" " data-name="BDUSS" data-site="http://pan.baidu.com/" data-toggle="get-cookie" >点击获取</button>
 
+##检测插件是否正常加载
+如果插件加载了,会在body标签增加一个`get-cookie`属性,调用前JS检测一下即可
+
+		<body get-cookie="true">
+
 ##设置获取Cookie的site(可选)
 在button标签上添加属性data-site
 例如:
@@ -58,6 +63,6 @@ data-cookie={"BDUSS":"ABC","BAIDUID":"ASCED"}
 
 ##备注
 
-现阶段为了安全起见,只在一下网站加载本插件.
+现阶段为了安全起见,只在以下网站加载本插件.
 
 * https://qiandao.today/
