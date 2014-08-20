@@ -22,7 +22,7 @@ onload(function() {
                 if(window.confirm('你确定要此网站获取你'+ site + domain +'的Cookies么？')){
                     export_btn.setAttribute("data-cookie", JSON.stringify(msg));
                     if(callback){
-                        window[callback](JSON.stringify(msg));
+                        window[callback](msg);
                     }
                     
                 }else{
