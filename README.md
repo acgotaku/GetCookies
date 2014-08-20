@@ -5,8 +5,8 @@ Chrome下获取Cookies插件,突破HTTP ONLY限制
 #使用文档
 
 ##绑定按钮点击事件
-插件会寻找DOM树中属性为`[data-id='cookie_btn']`的元素标签
-并绑定click事件,所以如果想获取Cookies就首先必须让页面上有一个带此属性的标签.  
+插件会寻找DOM树中属性为`[data-id='cookie_btn']`的元素标签并绑定click事件,
+所以如果想获取Cookies就首先必须让页面上有一个带此属性的标签.  
 例如button标签,所有信息都是通过button标签的属性进行获取的.
 
 		<button class="icon-btn-device" data-cookie=" " data-name="BDUSS" data-site="http://pan.baidu.com/" data-id="cookie_btn" >点击获取</button>
@@ -33,7 +33,7 @@ Chrome下获取Cookies插件,突破HTTP ONLY限制
 获取到的Cookie会添加到这个属性上
 
 ##触发获取Cookie事件
-JS模拟Click事件即可触发,之后读取data-cookie即可
+JS模拟Click事件即可触发,之后读取data-cookie即可.
 
 例如:
 
