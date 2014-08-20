@@ -37,14 +37,21 @@ Chrome下获取Cookies插件,突破HTTP ONLY限制
 
 ##设置Cookie的value
 在button标签上添加属性data-cookie
-可以为空值,但不能没有这个属性.
+可以默认设置为空值.
 获取到的Cookie会添加到这个属性上
+
+##获取Cookie之后回调
+在button标签上添加属性data-callback
+会执行callback函数并把所获取到的Cookie传进去.
+由于传入的是string类型的回调函数名字
+所以会这样调用,请注意:
+ 
+		window[callback](cookies);
 
 ##触发获取Cookie事件
 JS模拟Click事件即可触发,之后读取data-cookie即可.
-
 例如:
 
-data-cookie="[{BDUSS:ABCDEF}]"
+data-cookie={"BDUSS":"ABC","BAIDUID":"ASCED"}
 
-返回一个对象数组文本,可以使用JSON.parse 转换成对象数组.
+返回一个对象.

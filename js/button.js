@@ -1,5 +1,5 @@
 var button = function() {
-    var cookie_btn = $("<span>").addClass("icon-btn-device").css({float:"none"}).attr("data-cookie", " ").attr("data-domain", ".baidu.com").attr("data-site", "http://pan.baidu.com/").attr("data-toggle", "get-cookie").text("点击获取");
+    var cookie_btn = $("<span>").attr("data-callback", "alert").addClass("icon-btn-device").css({float:"none"}).attr("data-cookie", " ").attr("data-domain", ".baidu.com").attr("data-site", "http://pan.baidu.com/").attr("data-toggle", "get-cookie").text("点击获取");
     $(".icon-btn-device").after(cookie_btn);
 };
 
