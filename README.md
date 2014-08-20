@@ -11,21 +11,29 @@ Chrome下获取Cookies插件,突破HTTP ONLY限制
 
 		<button class="icon-btn-device" data-cookie=" " data-name="BDUSS" data-site="http://pan.baidu.com/" data-toggle="get-cookie" >点击获取</button>
 
-##设置获取Cookie的site
+##设置获取Cookie的site(可选)
 在button标签上添加属性data-site
 例如:
 
 		data-site=http://pan.baidu.com/
 
-这样就知道你需要是获取百度页面的Cookie,当然也包括*.baidu.com域的Cookies
+这样设置的是获取百度网盘页面下的Cookie,当然也包括*.baidu.com域的Cookies
 
-##设置获取Cookie的name
+##设置获取Cookie的name(可选)
 在button标签上添加属性data-name
 例如:
 
 		data-name=BDUSS
 
 说明获取的Cookies的name为BDUSS.
+
+##设置获取Cookie的domain(可选)
+在button标签上添加属性data-domain
+例如:
+
+		data-domain=.baidu.com
+
+设置获取的Cookies的domain属性为.baidu.com.
 
 ##设置Cookie的value
 在button标签上添加属性data-cookie
@@ -37,4 +45,6 @@ JS模拟Click事件即可触发,之后读取data-cookie即可.
 
 例如:
 
-data-cookie="BDUSS=ABCDEFG"
+data-cookie="[{BDUSS:ABCDEF}]"
+
+返回一个对象数组文本,可以使用JSON.parse 转换成对象数组.

@@ -5,13 +5,27 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
             port.onMessage.addListener(function(request) {
                 console.log(request);
                 if (request.do == "get_cookie") {
-                    chrome.cookies.get({"url": request.domain, "name": request.name}, function(cookies) {
-                        if (cookies) {
-                            var data = cookies.name + "=" + cookies.value;
-                            port.postMessage({"cookie": data});
-                            console.log(data);
+                    var option={};
+                    if(request.site){
+                        option["url"]=request.site;
+                    }
+                    if(request.name!=null){
+                        option["name"]=request.name;
+                    }
+                    if(request.domain){
+                        option["domain"]=request.domain;
+                    }
+                    console.log(option);
+                    chrome.cookies.getAll(option, function(cookies) {
+                        var obj=[];
+                        for (var i in cookies) {
+                            var cookie = cookies[i];
+                            var single={};
+                            single[cookie.name]=cookie.value;
+                            obj.push(single);
                         }
-
+                        port.postMessage(obj);
+                        console.log(obj);
                     });
 
                 }
@@ -21,7 +35,11 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
     }
 
 });
-
+                        // if (cookie) {
+                        //     var data = cookies.name + "=" + cookies.value;
+                        //     port.postMessage({"cookie": data});
+                        //     console.log(data);
+                        // }
 // chrome.runtime.onMessage.addListener(
 //     function(request, sender, sendResponse) {
 //         if (request.do == "get_cookie") {
