@@ -1,10 +1,8 @@
 #GetCookies
 
-Chrome下获取Cookies插件,突破HTTP ONLY限制
-Chrome商店安装Link:
-
+Chrome下获取Cookies插件,突破HTTP ONLY限制  
+Chrome商店安装Link:  
 https://chrome.google.com/webstore/detail/cookies-get-assistant/ljjpkibacifkfolehlgaolibbnlapkme
-
 
 #使用文档
 
