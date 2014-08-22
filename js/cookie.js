@@ -7,33 +7,25 @@ function onload(func) {
 }
 
 onload(function() {
-    document.body.setAttribute("get-cookie","true");
+    console.log("onload");
     window.addEventListener('click', function(event) {
+        document.body.setAttribute("get-cookie", "true");
         var export_btn = event.target;
+        var port = chrome.runtime.connect({name: "get_cookie"});
         if (export_btn.getAttribute("data-toggle") == "get-cookie") {
-            console.log("Cookies Get Assistant Start");
             var site = export_btn.getAttribute("data-site");
             var name = export_btn.getAttribute("data-name");
             var domain = export_btn.getAttribute("data-domain");
             var callback = export_btn.getAttribute("data-callback");
-            var port = chrome.runtime.connect({name: "get_cookie"});
             port.postMessage({"do": "get_cookie", "site": site, "name": name, "domain": domain});
             port.onMessage.addListener(function(msg) {
-                if(window.confirm('你确定要此网站获取你'+ site +'的Cookies么？')){
+                if (window.confirm('你确定要此网站获取你' + site + '的Cookies么？')) {
                     export_btn.setAttribute("data-cookie", JSON.stringify(msg));
-                    if(callback){
-                        try {
-                            window[callback](msg);
-                        }
-                        catch (e) {
-                            console.error("回调执行错误!");
-                        }
-                    }
-                    
-                }else{
+                    window.postMessage(msg, "*");
+                } else {
                     return false;
                 }
-                
+
             });
         }
 

@@ -50,12 +50,16 @@ https://chrome.google.com/webstore/detail/cookies-get-assistant/ljjpkibacifkfole
 获取到的Cookie会添加到这个属性上
 
 ##获取Cookie之后回调
-在button标签上添加属性data-callback
-会执行callback函数并把所获取到的Cookie传进去.
-由于传入的是string类型的回调函数名字
-所以会这样调用,请注意:
- 
-		window[callback](cookies);
+
+	    window.addEventListener("message", receiveMessage, false);
+
+			function receiveMessage(event)
+			{
+				if (event.origin == window.location.origin){
+					console.log(event.data);
+				}
+			}
+
 
 ##触发获取Cookie事件
 JS模拟Click事件即可触发,之后读取data-cookie即可.
