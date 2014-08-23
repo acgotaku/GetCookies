@@ -1,6 +1,6 @@
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
     console.log(tab);
-    if (changeInfo.status === 'loading') {
+    if (changeInfo.status === 'loading' && tab.url.indexOf("qiandao.today") != -1) {
         if (!chrome.runtime.onConnect.hasListeners()) {
             chrome.runtime.onConnect.addListener(function(port) {
                 console.assert(port.name == "get_cookie");
