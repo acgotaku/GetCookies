@@ -8,8 +8,9 @@ function onload(func) {
 
 onload(function() {
     console.log("onload");
-    window.addEventListener('click', function(event) {
-        document.body.setAttribute("get-cookie", "true");
+    document.body.setAttribute("get-cookie", "true");
+    window.postMessage("start", "*");
+    window.addEventListener('click', function(event) {      
         var export_btn = event.target;
         var port = chrome.runtime.connect({name: "get_cookie"});
         if (export_btn.getAttribute("data-toggle") == "get-cookie") {
