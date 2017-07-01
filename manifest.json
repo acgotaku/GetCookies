@@ -5,7 +5,7 @@
    },
    "content_scripts": [ {
       "js": ["js/cookie.js" ],
-      "matches": [ "https://qiandao.today/*", "http://qiandao.zhaoting.li/" ]
+      "matches": [ "https://qiandao.today/*"]
    } ],
    "default_locale": "en",
    "description": "__MSG_description__",
